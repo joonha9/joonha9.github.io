@@ -170,8 +170,8 @@ footer a:hover{color:var(--ink)}
     <div>
       <h1 class="intro-in">Joonha<br>Kwon</h1>
       <p class="kname intro-in d2">권준하</p>
-      <p class="bio intro-in d3" lang="en">Accounting &amp; Finance at <b>Boston College</b>, most recently an assurance intern at <b>EY</b>. I founded <b>FACCTing</b>, <b>POCODOG</b> and <b>Tembo</b>, teach valuation on <b>CLASS101</b>, and run <b>ValuationLab</b>, where AI agents design and test valuation rules on real data.</p>
-      <p class="bio intro-in d3" lang="ko"><b>보스턴 칼리지</b>에서 회계와 재무를 공부하며, 최근 <b>EY</b>에서 감사 인턴으로 일했습니다. <b>FACCTing</b>, <b>POCODOG</b>, <b>Tembo</b>를 창업했고, <b>CLASS101</b>에서 기업가치 평가를 가르치며, AI 에이전트가 실제 데이터로 가치평가 규칙을 설계하고 검증하는 <b>ValuationLab</b>을 운영합니다.</p>
+      <p class="bio intro-in d3" lang="en">Accounting &amp; Finance at <b>Boston College</b>, most recently an assurance intern at <b>EY</b>. I founded <b>FACCTing</b>, <b>POCODOG</b> and <b>Tembo</b>, teach valuation on <b>CLASS101</b>, and run <b>ValuationLab</b>, where AI agents design and test valuation rules on real data, and <b>Leadership Lab</b>, which tests whether leadership styles change an AI analyst's work.</p>
+      <p class="bio intro-in d3" lang="ko"><b>보스턴 칼리지</b>에서 회계와 재무를 공부하며, 최근 <b>EY</b>에서 감사 인턴으로 일했습니다. <b>FACCTing</b>, <b>POCODOG</b>, <b>Tembo</b>를 창업했고, <b>CLASS101</b>에서 기업가치 평가를 가르치며, AI 에이전트가 실제 데이터로 가치평가 규칙을 설계하고 검증하는 <b>ValuationLab</b>과, 리더십 스타일이 AI 애널리스트의 일을 바꾸는지 시험하는 <b>Leadership Lab</b>을 운영합니다.</p>
       <div class="reach intro-in d4">
         <button type="button" class="pill dark" id="copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg><span id="copy-label">joonha9@gmail.com</span></button>
         <a class="pill" href="https://www.linkedin.com/in/joonha-kwon" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.5V21h-4v-5.8c0-1.38-.03-3.16-1.93-3.16-1.93 0-2.22 1.5-2.22 3.06V21H9z"/></svg>LinkedIn</a>
@@ -299,6 +299,18 @@ const ITEMS = [
     chart: [[{en: "AI agents", ko: "AI 에이전트"}, 0.502], [{en: "Industry median", ko: "업종 중앙값"}, 0.650], [{en: "Bhojraj–Lee", ko: "Bhojraj–Lee"}, 0.751]],
   },
   {
+    id: "leadershiplab", kind: "research", name: "Leadership Lab", color: "#165a50", year: "2026",
+    line: {en: "Does how you lead an AI analyst change its work?", ko: "AI 애널리스트를 어떻게 이끄느냐가 분석을 바꿀까?"},
+    role: {en: "Independent research, MGMT 3099 (Leadership)", ko: "개인 연구, MGMT 3099 (리더십)"},
+    text: {en: "A randomized test of Goleman's six leadership styles on 756 AI valuation analysts across three task situations. Style changed how the analysts worked, not how well: every style effect was equivalent to zero, and the situation mattered about three times as much.",
+           ko: "Goleman의 여섯 가지 리더십 스타일을 세 가지 과제 상황에서 AI 가치평가 애널리스트 756명에게 무작위로 적용했습니다. 스타일은 일하는 방식을 바꿨지만 정확도는 바꾸지 못했습니다. 모든 스타일 효과가 0과 동등했고, 상황의 영향이 약 세 배 컸습니다."},
+    facts: [["18/18", {en: "style effects equivalent to zero", ko: "0과 동등한 스타일 효과"}], ["756", {en: "AI analysts, randomized", ko: "무작위 배정 AI 애널리스트"}]],
+    links: [["Open the lab", "https://joonha9.github.io/leadership-lab/"], ["Code", "https://github.com/joonha9/leadership-lab"]],
+    chart: [[{en: "Task situation", ko: "과제 상황"}, 0.033], [{en: "Leadership style", ko: "리더십 스타일"}, 0.011]],
+    chartTitle: {en: "How far accuracy moves", ko: "정확도가 움직이는 폭"}, chartSub: {en: "Range of relative error, 756 analysts", ko: "상대 오차의 범위, 애널리스트 756명"},
+    chartMax: 0.04, chartDigits: 3,
+  },
+  {
     id: "class101", kind: "teaching", name: "CLASS101", color: "#f0533b", year: "2026",
     line: {en: "Online class on valuation and M&A, from DCF to case competitions", ko: "기업가치 평가와 M&A 온라인 클래스, DCF 실전부터 케이스까지"},
     role: {en: "Creator and instructor", ko: "크리에이터 · 강사"},
@@ -307,12 +319,6 @@ const ITEMS = [
     facts: [["DCF", {en: "built from real numbers", ko: "실제 숫자로 만드는 실전"}], ["M&A", {en: "case competition prep", ko: "케이스 컴피티션 대비"}]],
     links: [["View class", "https://class101.net/ko/products/6a06b9dbb3ec460f5241b1cf"]],
     visual: {big: {en: "Valuation and M&A, in practice", ko: "실전 기업가치 평가 & M&A"}, sub: {en: "Video class on CLASS101", ko: "CLASS101 온라인 클래스"}},
-  },
-  {
-    id: "leadershiplab", kind: "research", name: "Leadership Lab", color: "#9aa1ad", year: "Next", planned: true,
-    line: {en: "Does how you manage an AI analyst change its work?", ko: "AI 애널리스트를 어떻게 이끄느냐가 분석을 바꿀까?"},
-    text: {en: "The same financial-analysis task, given to AI agents under different leadership styles: directive, visionary, coaching, hands-off and high-pressure. Only the tone changes, never the information, and every result is graded on the ValuationLab bench with FactSet data.",
-           ko: "같은 금융 분석 과제를 지시형, 비전형, 코칭형, 위임형, 압박형 등 서로 다른 리더십 스타일로 AI 에이전트에게 맡깁니다. 정보는 그대로 두고 말투만 바꾸며, 모든 결과는 FactSet 데이터로 ValuationLab 채점기에서 평가합니다."},
   },
   {
     id: "mispricing", kind: "research", name: "Mispricing Lab", color: "#9aa1ad", year: "Next", planned: true,
@@ -397,13 +403,15 @@ let filter = "all", openId = null;
 
 function visual(it) {
   if (it.chart) {
-    const W = 296, labW = 104, rh = 30, max = 0.8;
+    const W = 296, labW = 104, rh = 30, max = it.chartMax || 0.8, dg = it.chartDigits || 2;
     const bars = it.chart.map(([lab, v], i) => {
       const y = i * rh, w = (W - labW - 40) * v / max;
-      return `<text x="0" y="${y + 14}">${esc(T(lab))}</text><rect x="${labW}" y="${y + 3}" width="${w}" height="14" rx="3" fill="#fff" opacity="${i ? .45 : 1}"/><text x="${labW + w + 6}" y="${y + 14}">${v.toFixed(2)}</text>`;
+      return `<text x="0" y="${y + 14}">${esc(T(lab))}</text><rect x="${labW}" y="${y + 3}" width="${w}" height="14" rx="3" fill="#fff" opacity="${i ? .45 : 1}"/><text x="${labW + w + 6}" y="${y + 14}">${v.toFixed(dg)}</text>`;
     }).join("");
-    return `<div class="visual" style="background:${it.color}"><div class="v-t">${LANG === "ko" ? "가치평가 오차 (낮을수록 정확)" : "Valuation error, lower is better"}</div>
-      <svg viewBox="0 0 ${W} ${it.chart.length * rh}">${bars}</svg><div class="v-s">EV/Sales, FY2020–2023</div></div>`;
+    const title = it.chartTitle ? T(it.chartTitle) : (LANG === "ko" ? "가치평가 오차 (낮을수록 정확)" : "Valuation error, lower is better");
+    const sub = it.chartSub ? T(it.chartSub) : "EV/Sales, FY2020–2023";
+    return `<div class="visual" style="background:${it.color}"><div class="v-t">${esc(title)}</div>
+      <svg viewBox="0 0 ${W} ${it.chart.length * rh}">${bars}</svg><div class="v-s">${esc(sub)}</div></div>`;
   }
   if (it.planned) return `<div class="visual" style="background:${it.color}"><div class="v-t">${LANG === "ko" ? "다음 연구" : "Up next"}</div><div class="v-big" style="font-size:24px">${esc(T(it.line))}</div><div class="v-s">${esc(it.name)}</div></div>`;
   return `<div class="visual" style="background:${it.dark ? "#2e2e38" : it.color}"><div class="v-t"${it.dark ? ` style="color:${it.color};opacity:1"` : ""}>${esc(it.name)}</div><div class="v-big">${esc(T(it.visual.big))}</div><div class="v-s">${esc(T(it.visual.sub))}</div></div>`;
