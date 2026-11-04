@@ -125,6 +125,27 @@ h2{font-weight:600;font-size:28px;letter-spacing:-.03em;margin:0}
 .reports .more{display:inline-flex;margin-top:20px;font-size:14.5px;color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--line)}
 .reports .more:hover{color:var(--ink);border-bottom-color:var(--ink)}
 @media (max-width:820px){.rep{grid-template-columns:1fr;gap:10px}.rep .pill{justify-self:start}}
+
+/* photography */
+.photos-sec{margin-top:96px}
+.photos-sec .work-head{border-bottom:0;padding-bottom:20px}
+.photos-sec .work-head p{margin:6px 0 0;color:var(--muted);font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.ph{position:relative;display:block;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:var(--soft)}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.ph span{position:absolute;left:12px;bottom:10px;color:#fff;font-weight:500;font-size:14px;text-shadow:0 1px 8px rgba(0,0,0,.45);opacity:0;transform:translateY(4px);transition:opacity .25s,transform .25s}
+.ph::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(transparent,rgba(0,0,0,.45));opacity:0;transition:opacity .25s}
+.ph:hover img,.ph:focus-visible img{transform:scale(1.04)}
+.ph:hover span,.ph:hover::after,.ph:focus-visible span,.ph:focus-visible::after{opacity:1;transform:none}
+.ph span{z-index:1}
+.photo-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+@media (hover:none){.ph span,.ph::after{opacity:1;transform:none}}
+@media (max-width:820px){
+  .grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:max(24px,env(safe-area-inset-left,0px));gap:10px;margin:0 calc(-1*max(24px,env(safe-area-inset-left,0px)));padding:0 max(24px,env(safe-area-inset-left,0px));scrollbar-width:none}
+  .grid::-webkit-scrollbar{display:none}
+  .ph{flex:0 0 78%;scroll-snap-align:start}
+}
+@media (prefers-reduced-motion:reduce){.ph img,.ph span,.ph::after{transition:none}}
 footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding:56px 0 48px;color:var(--muted);font-size:14px}
 footer a{text-decoration:none}
 footer a:hover{color:var(--ink)}
@@ -189,6 +210,21 @@ footer a:hover{color:var(--ink)}
     </div>
     <div id="reports"></div>
     <a class="more" id="more-reports" href="https://www.faccting.com/research/" target="_blank" rel="noopener"><span lang="en">All reports on FACCTing</span><span lang="ko">FACCTing에서 전체 리포트 보기</span></a>
+  </section>
+
+  <section class="photos-sec" aria-labelledby="ph-title">
+    <div class="work-head">
+      <div>
+        <h2 id="ph-title"><span lang="en">Photography</span><span lang="ko">사진</span></h2>
+        <p lang="en">Outside work I photograph cities and the places I travel to.</p>
+        <p lang="ko">일 밖에서는 도시와 여행지를 사진으로 담습니다.</p>
+      </div>
+    </div>
+    <div class="grid" id="photos"></div>
+    <div class="photo-links">
+      <a class="pill dark" href="https://www.instagram.com/kwon_photography_/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>Instagram</a>
+      <a class="pill" href="https://kwonphoto.blogspot.com/" target="_blank" rel="noopener"><span lang="en">Photo blog</span><span lang="ko">사진 블로그</span></a>
+    </div>
   </section>
 
   <footer>
@@ -338,6 +374,13 @@ function renderReports() {
   // FACCTing has one research index for both languages; only single reports have /us/ paths.
   document.getElementById("more-reports").href = "https://www.faccting.com/research/";
 }
+
+/* Photos from the photo blog; each opens its post. */
+const PHOTOS = [{"en": "Mexico", "ko": "멕시코", "url": "https://kwonphoto.blogspot.com/2025/03/spring-break-cancun.html", "img": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhokM1st9T_6cc4G1naqz7V8vbOK9zn_sL3zmQ7doKpERqn9DDL14p9P2ErsIMH4Yk5XOa0mf-JUQx2egXi0TVXzabEYknrns7sk9O8vFJqRzAYCTXEdI4XJvZBlC8gB4M_1rGeB9o_G6LSXwPB1ZmLQUZjwYgTqeZp5NA_vmoHjQLyTKsnbnkD5cZqaN2q/s900/DSC_8416.jpg"}, {"en": "Beaver Moon", "ko": "비버 문", "url": "https://kwonphoto.blogspot.com/2024/11/beaver-moon.html", "img": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlTDR31g-nopJmpZr_iLqPkuX_5esGTb3pUpXhkHvxbYGRM67zC3ySfE2sZuKRogxBXBPHNNy7VZ3GIxMQLN8qRGSXFGFWInZSO_a-jIAPPk3xkD1k0saAAWblHy8MurtPXzGBPluBpUhofEK_VtWCFUJkVIE2g1cZXJMYbOLbqQRu75sShJL9X8xz_C1x/s900/Beaver-2.jpg"}, {"en": "Boston College at sunset", "ko": "보스턴 칼리지의 노을", "url": "https://kwonphoto.blogspot.com/2024/10/sunset-serenade-capturing-boston.html", "img": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwOA4Ap4uwX4CmvcITfV00UWCqUKVZnk3PSZ3qQOZYku2S4_h4XEch_HIhWhW8cOBB49u3rVD0J9kInbsdBiZF5bqvVAkyDF6ijDAZqvYPGFS_pYMrPt2kyBIBFCVgfDHJBQaDcRgaRjqgcQpI3gMj3dW34fLjBJDD-rSvaIvn0jWfUlG3mZSpGozz2WYn/s900/BC-1.jpg"}, {"en": "Chicago", "ko": "시카고", "url": "https://kwonphoto.blogspot.com/2024/09/a-day-in-chicago-through-my-lens.html", "img": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFh3G_nkYrTRrE4gLrhudo0BEFG0V_bv_wzwhkrvIUG_d2_fA2IjFgwfdNHx_NoDj5BCzDf3AdSbob5SBBKCFJKBrrf3NymfL4PCvdPA7ENhvTjHSnNx9Qp7B9jZk9P4_GSmvFEX8w9qLrjAn5BdIfSeZRd2P35vuIdnJ8p6F2_SVEDWsXNC-MChrzvXE1/s900/ORD-7.jpg"}, {"en": "Hokkaido", "ko": "홋카이도", "url": "https://kwonphoto.blogspot.com/2024/07/our-enchanting-journey-through-hokkaido.html", "img": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiRfYaQWL-_5jV9Hfa9-_MXGAZtqmoqoJXVrLBPpEygi_rYxIcenNlHSMFFcsSfMjeFLtM8YQSq-TUifebTJEOWFpCHgbPD8U5I5odrTpsZ4x7IP_QwAgWepxaUv3lm0VsUPl2zWruQEPfSfDa-gXnYBfks5CIe4OoBnZWSbIymZhCGUwQcMGeQRc2Eruiz/s900/%E1%84%92%E1%85%A9%E1%86%BA%E1%84%8F%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%83%E1%85%A9-2.jpg"}, {"en": "Hong Kong", "ko": "홍콩", "url": "https://kwonphoto.blogspot.com/2024/04/enchanting-hong-kong-visual-journey.html", "img": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrWtTuw2m76g8ogYPtMpt90PwkvnaTBvYX6wVuQUt_3pHi3r24p7ZyICpDZD3Yvmrq-h_YtZJXUswMyGpEhcUJNGnj2wpYXbHJCYrpma8hctl4c8wC-i_kCP4K0-oaJTWYwdVjNx9gMC7p7Lzx8w2MIg_HYI7ZFH1gK4tt3oqwGMhyphenhyphenY8tqEn65Ch8EqeoS/s900/Aqua%20Luna.jpg"}];
+function renderPhotos() {
+  document.getElementById("photos").innerHTML = PHOTOS.map(ph =>
+    `<a class="ph" href="${ph.url}" target="_blank" rel="noopener"><img src="${ph.img}" alt="${esc(ph[LANG])}" loading="lazy" decoding="async"><span>${esc(ph[LANG])}</span></a>`).join("");
+}
 let LANG = "en";
 const T = o => (o && typeof o === "object" && "en" in o) ? o[LANG] : o;
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -393,6 +436,7 @@ function render() {
   }));
   bindPreview();
   renderReports();
+  renderPhotos();
 }
 
 /* Floating preview that follows the pointer over closed rows (pointer devices only). */
