@@ -188,7 +188,7 @@ footer a:hover{color:var(--ink)}
       </div>
     </div>
     <div id="reports"></div>
-    <a class="more" id="more-reports" href="https://www.faccting.com/us/research" target="_blank" rel="noopener"><span lang="en">All reports on FACCTing</span><span lang="ko">FACCTing에서 전체 리포트 보기</span></a>
+    <a class="more" id="more-reports" href="https://www.faccting.com/research/" target="_blank" rel="noopener"><span lang="en">All reports on FACCTing</span><span lang="ko">FACCTing에서 전체 리포트 보기</span></a>
   </section>
 
   <footer>
@@ -315,7 +315,8 @@ function renderReports() {
       <a class="pill" href="${reportUrl(r)}" target="_blank" rel="noopener">${LANG === "ko" ? "리포트 보기" : "Read report"}${only ? ` <span style="color:var(--muted);font-weight:400">(${only})</span>` : ""} ${EXT}</a>
     </article>`;
   }).join("");
-  document.getElementById("more-reports").href = LANG === "ko" ? "https://www.faccting.com/research" : "https://www.faccting.com/us/research";
+  // FACCTing has one research index for both languages; only single reports have /us/ paths.
+  document.getElementById("more-reports").href = "https://www.faccting.com/research/";
 }
 let LANG = "en";
 const T = o => (o && typeof o === "object" && "en" in o) ? o[LANG] : o;
