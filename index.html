@@ -243,6 +243,16 @@ const ITEMS = [
     visual: {big: {en: "A small friend on your desk", ko: "책상 위의 작은 친구"}, sub: {en: "Safe by design: actions from an approved list", ko: "승인된 동작만 하는 안전한 설계"}},
   },
   {
+    id: "muyu", kind: "startup", name: "MUYU Advice", color: "#6b4fd8", year: "2020–22",
+    line: {en: "Study-abroad consulting firm", ko: "유학 컨설팅 회사, 무유어드바이스"},
+    role: {en: "Founder, 2020 to 2022 (no longer operating)", ko: "창업자 · 2020–2022 (현재 운영 종료)"},
+    text: {en: "A study-abroad consulting firm I founded in 2020 to guide students through applying to schools overseas. I ran it until 2022.",
+           ko: "해외 학교 지원 과정을 학생들과 함께 준비하는 유학 컨설팅 회사로, 2020년에 창업해 2022년까지 운영했습니다."},
+    facts: [["2020", {en: "founded", ko: "창업"}], ["2022", {en: "wound down", ko: "운영 종료"}]],
+    links: [["Instagram", "https://www.instagram.com/muyu_advice/"], ["Intro video", "https://youtu.be/CQSbIKdiCEM"]],
+    visual: {big: {en: "Study-abroad consulting", ko: "유학 컨설팅"}, sub: {en: "2020–2022", ko: "2020–2022"}},
+  },
+  {
     id: "valuationlab", kind: "research", name: "ValuationLab", color: "#2f5bea", year: "2026",
     line: {en: "Can AI agents pick better comparable companies?", ko: "AI 에이전트가 더 나은 비교 기업을 고를 수 있을까?"},
     role: {en: "Independent research", ko: "개인 연구"},
@@ -332,7 +342,7 @@ let LANG = "en";
 const T = o => (o && typeof o === "object" && "en" in o) ? o[LANG] : o;
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const KIND = {teaching: {en: "Teaching", ko: "강의"}, experience: {en: "Experience", ko: "경력"}, startup: {en: "Start-up", ko: "창업"}, research: {en: "Research", ko: "연구"}};
-const LINK_KO = {"Website": "웹사이트", "Open the lab": "lab 보기", "Code": "코드", "View class": "클래스 보기"};
+const LINK_KO = {"Website": "웹사이트", "Open the lab": "lab 보기", "Code": "코드", "View class": "클래스 보기", "Instagram": "인스타그램", "Intro video": "소개 영상"};
 const YEAR = y => y === "Next" ? (LANG === "ko" ? "예정" : "Next") : y;
 let filter = "all", openId = null;
 
