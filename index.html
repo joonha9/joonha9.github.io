@@ -170,8 +170,8 @@ footer a:hover{color:var(--ink)}
     <div>
       <h1 class="intro-in">Joonha<br>Kwon</h1>
       <p class="kname intro-in d2">권준하</p>
-      <p class="bio intro-in d3" lang="en">Accounting &amp; Finance at <b>Boston College</b>, most recently an assurance intern at <b>EY</b>. I founded <b>FACCTing</b>, <b>POCODOG</b> and <b>Tembo</b>, teach valuation on <b>CLASS101</b>, and run <b>ValuationLab</b>, where AI agents design and test valuation rules on real data, <b>Leadership Lab</b>, which tests whether leadership styles change an AI analyst's work, and <b>Comps Range Lab</b>, which asks how much a comps valuation should be trusted.</p>
-      <p class="bio intro-in d3" lang="ko"><b>보스턴 칼리지</b>에서 회계와 재무를 공부하며, 최근 <b>EY</b>에서 감사 인턴으로 일했습니다. <b>FACCTing</b>, <b>POCODOG</b>, <b>Tembo</b>를 창업했고, <b>CLASS101</b>에서 기업가치 평가를 가르치며, AI 에이전트가 실제 데이터로 가치평가 규칙을 설계하고 검증하는 <b>ValuationLab</b>, 리더십 스타일이 AI 애널리스트의 일을 바꾸는지 시험하는 <b>Leadership Lab</b>, 유사기업 가치평가를 얼마나 믿어야 하는지 묻는 <b>Comps Range Lab</b>을 운영합니다.</p>
+      <p class="bio intro-in d3" lang="en">Accounting &amp; Finance at <b>Boston College</b>, most recently an assurance intern at <b>EY</b>. I founded <b>FACCTing</b>, <b>POCODOG</b> and <b>Tembo</b>, teach valuation on <b>CLASS101</b>, and run <b>ValuationLab</b>, where AI agents design and test valuation rules on real data, <b>Leadership Lab</b>, which tests whether leadership styles change an AI analyst's work, <b>Comps Range Lab</b>, which asks how much a comps valuation should be trusted, and <b>Terminal Value Lab</b>, which tests whether Gordon growth or exit multiples get terminal value right.</p>
+      <p class="bio intro-in d3" lang="ko"><b>보스턴 칼리지</b>에서 회계와 재무를 공부하며, 최근 <b>EY</b>에서 감사 인턴으로 일했습니다. <b>FACCTing</b>, <b>POCODOG</b>, <b>Tembo</b>를 창업했고, <b>CLASS101</b>에서 기업가치 평가를 가르치며, AI 에이전트가 실제 데이터로 가치평가 규칙을 설계하고 검증하는 <b>ValuationLab</b>, 리더십 스타일이 AI 애널리스트의 일을 바꾸는지 시험하는 <b>Leadership Lab</b>, 유사기업 가치평가를 얼마나 믿어야 하는지 묻는 <b>Comps Range Lab</b>, Gordon 성장 모형과 exit multiple 중 어느 쪽이 terminal value를 맞히는지 검증하는 <b>Terminal Value Lab</b>을 운영합니다.</p>
       <div class="reach intro-in d4">
         <button type="button" class="pill dark" id="copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg><span id="copy-label">joonha9@gmail.com</span></button>
         <a class="pill" href="https://www.linkedin.com/in/joonha-kwon" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.5V21h-4v-5.8c0-1.38-.03-3.16-1.93-3.16-1.93 0-2.22 1.5-2.22 3.06V21H9z"/></svg>LinkedIn</a>
@@ -322,6 +322,18 @@ const ITEMS = [
     chart: [[{en: "AI agents", ko: "AI 에이전트"}, 3.24], [{en: "Constant range", ko: "고정 폭 범위"}, 3.45], [{en: "Peer 25–75%", ko: "피어 25–75%"}, 4.04]],
     chartTitle: {en: "Range score, lower is better", ko: "범위 점수 (낮을수록 좋음)"}, chartSub: {en: "EV/EBITDA, sealed holdout FY2024–2025", ko: "EV/EBITDA, 봉인했던 최종 시험 FY2024–2025"},
     chartMax: 4.6, chartDigits: 2,
+  },
+  {
+    id: "terminalvaluelab", kind: "research", name: "Terminal Value Lab", color: "#0b2545", year: "2026",
+    line: {en: "Gordon growth or exit multiple: which terminal value is right?", ko: "Gordon 성장 모형과 exit multiple, 어느 terminal value가 맞을까?"},
+    role: {en: "Independent research", ko: "개인 연구"},
+    text: {en: "A pre-registered test of the two standard terminal-value formulas against what US firms were actually worth five years later, and against acquisition prices. Exit multiples beat Gordon growth in all three periods; Gordon fails where WACC − g is small. AI agents found rules that looked better in-sample but lost on the sealed test period, and the Gordon-vs-market gap did not predict stock returns, pointing to formula error rather than mispricing.",
+           ko: "대표적인 두 terminal value 공식을, 미국 기업이 5년 뒤 실제로 가진 가치와 인수가격에 비교해 사전 등록 방식으로 검증했습니다. Exit multiple은 세 기간 모두에서 Gordon 성장 모형을 이겼고, Gordon은 WACC − g가 작을 때 크게 틀렸습니다. AI 에이전트의 규칙은 탐색 기간에서는 좋아 보였지만 봉인된 최종 시험에서 졌고, Gordon 가치와 시장가치의 차이는 주식 수익률을 예측하지 못했습니다. Gordon의 오차는 시장의 오가격이 아니라 공식의 오차라는 뜻입니다."},
+    facts: [["3 / 3", {en: "periods in which exit multiples beat Gordon", ko: "exit multiple이 Gordon을 이긴 기간"}], ["0", {en: "pre-registered return tests that rejected (of 3)", ko: "기각된 수익률 사전 등록 검정 (3개 중)"}]],
+    links: [["Open the lab", "https://joonha9.github.io/terminal-value-lab/"], ["Code", "https://github.com/joonha9/terminal-value-lab"]],
+    chart: [[{en: "Own EV/EBITDA", ko: "자기 EV/EBITDA"}, 0.382], [{en: "Industry exit", ko: "업종 exit"}, 0.426], [{en: "Gordon growth", ko: "Gordon 성장"}, 0.663]],
+    chartTitle: {en: "Median |ln error|, lower is better", ko: "median |ln 오차| (낮을수록 좋음)"}, chartSub: {en: "Sealed test period, t = 2019–2020", ko: "봉인했던 최종 시험, t = 2019–2020"},
+    chartMax: 0.75, chartDigits: 3,
   },
   {
     id: "class101", kind: "teaching", name: "CLASS101", color: "#f0533b", year: "2026",
